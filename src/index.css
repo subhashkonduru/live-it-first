@@ -119,6 +119,57 @@ All colors MUST be HSL.
   }
 }
 
+/* Animation utilities */
+@layer utilities {
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes floaty {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes fade-up {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .gradient-logo {
+    background-image: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--gold)) 55% , hsl(185 60% 50%));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  .floaty { animation: floaty 4s ease-in-out infinite; }
+  .fade-up { animation: fade-up 0.6s ease both; }
+
+  .cta-glow {
+    box-shadow: 0 8px 30px -8px hsl(var(--primary-glow) / 0.45);
+    transition: box-shadow 0.35s ease, transform 0.25s ease;
+  }
+  .cta-glow:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 60px -12px hsl(var(--primary-glow) / 0.5); }
+
+  .card-appear { transition: transform 0.45s cubic-bezier(.2,.9,.3,1), box-shadow 0.45s; }
+  .card-appear:hover { transform: translateY(-6px); box-shadow: var(--shadow-elegant); }
+
+  /* subtle animated underline for links */
+  .link-underline {
+    background-image: linear-gradient(transparent, transparent), linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
+    background-size: 0% 2px, 100% 2px;
+    background-position: 0% 100%, 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.25s ease;
+  }
+  .link-underline:hover { background-size: 100% 2px, 100% 2px; }
+}
+
 @layer base {
   * {
     @apply border-border;

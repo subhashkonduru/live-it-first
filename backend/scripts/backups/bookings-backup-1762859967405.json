@@ -1,0 +1,70 @@
+[
+  {
+    "_id": "6912de21f48b4ecd56528c31",
+    "property": "6912de12f48b4ecd56528c2e",
+    "guest": "6912ddfef48b4ecd56528c2c",
+    "checkIn": "2025-11-11T06:56:33.160Z",
+    "checkOut": "2025-11-14T06:56:33.171Z",
+    "durationDays": 3,
+    "status": "confirmed",
+    "depositStatus": "held",
+    "createdAt": "2025-11-11T06:56:33.183Z",
+    "__v": 0
+  },
+  {
+    "_id": "6912f561f690728c5d2e77c5",
+    "property": "6912f561f690728c5d2e77c2",
+    "guest": "6912f561f690728c5d2e77bf",
+    "checkIn": "2025-11-11T08:35:45.269Z",
+    "checkOut": "2025-11-14T08:35:45.269Z",
+    "durationDays": 3,
+    "status": "pending",
+    "depositStatus": "held",
+    "createdAt": "2025-11-11T08:35:45.269Z",
+    "__v": 0
+  },
+  {
+    "_id": "6913046e432f284dabc9de30",
+    "property": "6912fbd082e342dc11c6a425",
+    "checkIn": "2025-11-11T00:00:00.000Z",
+    "checkOut": "2025-11-14T00:00:00.000Z",
+    "durationDays": 3,
+    "status": "pending",
+    "depositStatus": "held",
+    "createdAt": "2025-11-11T09:39:58.029Z",
+    "__v": 0
+  },
+  {
+    "_id": "691305c6432f284dabc9de42",
+    "property": "6912fbd082e342dc11c6a425",
+    "checkIn": "2025-11-11T00:00:00.000Z",
+    "checkOut": "2025-11-14T00:00:00.000Z",
+    "durationDays": 3,
+    "status": "pending",
+    "depositStatus": "held",
+    "createdAt": "2025-11-11T09:45:42.208Z",
+    "__v": 0
+  },
+  {
+    "_id": "69130617432f284dabc9de54",
+    "property": "6912f561f690728c5d2e77c2",
+    "checkIn": "2025-11-11T00:00:00.000Z",
+    "checkOut": "2025-11-14T00:00:00.000Z",
+    "durationDays": 3,
+    "status": "pending",
+    "depositStatus": "held",
+    "createdAt": "2025-11-11T09:47:03.198Z",
+    "__v": 0
+  },
+  {
+    "_id": "691311b4528e7f0a439746f0",
+    "property": "69130fc2528e7f0a439746e7",
+    "checkIn": "2025-11-11T00:00:00.000Z",
+    "checkOut": "2025-11-14T00:00:00.000Z",
+    "durationDays": 3,
+    "status": "pending",
+    "depositStatus": "held",
+    "createdAt": "2025-11-11T10:36:36.836Z",
+    "__v": 0
+  }
+]

@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Lovable</h3>
+            <h3 className="text-2xl font-bold">Live It First</h3>
             <p className="text-background/70 leading-relaxed">
               Redefining property discovery through immersive trial experiences. Live it before you commit.
             </p>
@@ -114,7 +114,7 @@ export const Footer = () => {
         <div className="pt-8 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/70 text-sm">
-              © 2025 Lovable. All rights reserved.
+              © 2025 Live It First. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-background/70 hover:text-background transition-colors">

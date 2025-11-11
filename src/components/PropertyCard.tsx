@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Star } from "lucide-react";
+import resolveMediaUrl from '@/lib/media';
 
 interface PropertyCardProps {
   image: string;
@@ -27,9 +28,9 @@ export const PropertyCard = ({
   return (
     <div className="group cursor-pointer">
       {/* Image Container */}
-      <div className="relative aspect-[3/2] rounded-lg overflow-hidden mb-4">
+        <div className="relative aspect-[3/2] rounded-lg overflow-hidden mb-4">
         <img 
-          src={image} 
+          src={resolveMediaUrl(image)} 
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />

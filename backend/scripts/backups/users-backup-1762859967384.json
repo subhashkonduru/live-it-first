@@ -1,0 +1,41 @@
+[
+  {
+    "_id": "6912ddfef48b4ecd56528c2c",
+    "name": "AI Test Guest",
+    "email": "ai-test+guest@example.com",
+    "passwordHash": "$2b$10$STkPUUg7/UmANbiuxyDWL.xxim8Zi2VH9JG/vuIZZSC4XaYpNEuc2",
+    "kyc": {
+      "status": "pending",
+      "documents": []
+    },
+    "role": "guest",
+    "createdAt": "2025-11-11T06:55:58.743Z",
+    "__v": 0
+  },
+  {
+    "_id": "6912f561f690728c5d2e77bc",
+    "name": "Demo Host",
+    "email": "host@example.com",
+    "passwordHash": "$2b$10$f.MSzZhwdbOwcp2fX1ji/.wcDuESe2olNdqeSiqyXtgaBvHHuIVq2",
+    "kyc": {
+      "status": "pending",
+      "documents": []
+    },
+    "role": "host",
+    "createdAt": "2025-11-11T08:35:45.113Z",
+    "__v": 0
+  },
+  {
+    "_id": "6912f561f690728c5d2e77bf",
+    "name": "Demo Guest",
+    "email": "guest@example.com",
+    "passwordHash": "$2b$10$F75Rdqo/kO3WyV1G5JnLROCOTWBFdwzNV0YahyHIdW7yd.yr8qWsW",
+    "kyc": {
+      "status": "pending",
+      "documents": []
+    },
+    "role": "guest",
+    "createdAt": "2025-11-11T08:35:45.242Z",
+    "__v": 0
+  }
+]

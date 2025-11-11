@@ -1,0 +1,100 @@
+[
+  {
+    "_id": "6912de12f48b4ecd56528c2e",
+    "title": "Test Villa",
+    "media": [],
+    "description": "A test property created by self-check",
+    "price": {
+      "baseRate": 500,
+      "cleaning": 50,
+      "refundableDeposit": 200,
+      "platformFeePct": 0.12
+    },
+    "itineraryTemplate": [],
+    "rooms": [],
+    "createdAt": "2025-11-11T06:56:18.089Z",
+    "__v": 0
+  },
+  {
+    "_id": "6912f561f690728c5d2e77c2",
+    "title": "Demo Property — Lakeside Retreat",
+    "owner": "6912f561f690728c5d2e77bc",
+    "media": [
+      "/uploads/placeholder.jpg"
+    ],
+    "description": "A short demo property used for local testing.",
+    "price": {
+      "baseRate": 120,
+      "cleaning": 20,
+      "refundableDeposit": 50,
+      "platformFeePct": 0.12
+    },
+    "available": true,
+    "itineraryTemplate": [],
+    "rooms": [],
+    "createdAt": "2025-11-11T08:35:45.260Z",
+    "__v": 0
+  },
+  {
+    "_id": "6912fbd082e342dc11c6a425",
+    "title": "Urban Loft — City Centre",
+    "owner": "6912f561f690728c5d2e77bc",
+    "media": [
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop&crop=entropy"
+    ],
+    "description": "Modern loft in the heart of the city, perfect for business travellers.",
+    "price": {
+      "baseRate": 150,
+      "cleaning": 25,
+      "refundableDeposit": 75,
+      "platformFeePct": 0.11
+    },
+    "available": true,
+    "itineraryTemplate": [],
+    "rooms": [],
+    "createdAt": "2025-11-11T09:03:12.975Z",
+    "__v": 0
+  },
+  {
+    "_id": "69130cd6ac0781a7db529564",
+    "title": "rama",
+    "owner": "6912f561f690728c5d2e77bc",
+    "media": [
+      "/uploads/1762856150071-rambagh-palace2028129_1.jpg"
+    ],
+    "description": "",
+    "available": true,
+    "itineraryTemplate": [],
+    "rooms": [],
+    "createdAt": "2025-11-11T10:15:50.085Z",
+    "__v": 0
+  },
+  {
+    "_id": "69130fc2528e7f0a439746e7",
+    "title": "rama",
+    "owner": "6912f561f690728c5d2e77bf",
+    "media": [
+      "/uploads/1762856898384-rambagh-palace2028129_1.jpg"
+    ],
+    "description": "",
+    "available": true,
+    "itineraryTemplate": [],
+    "rooms": [],
+    "createdAt": "2025-11-11T10:28:18.399Z",
+    "__v": 0
+  },
+  {
+    "_id": "691313f87cfeec8a5848433b",
+    "title": "ok",
+    "owner": "6912f561f690728c5d2e77bf",
+    "media": [
+      "http://localhost:4000/uploads/1762857976266-rambagh-palace2028129_1.jpg"
+    ],
+    "description": "",
+    "available": true,
+    "itineraryTemplate": [],
+    "rooms": [],
+    "createdAt": "2025-11-11T10:46:16.288Z",
+    "__v": 0
+  }
+]

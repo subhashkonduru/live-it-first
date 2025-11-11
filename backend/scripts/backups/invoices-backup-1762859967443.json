@@ -1,0 +1,209 @@
+[
+  {
+    "_id": "6912de21f48b4ecd56528c33",
+    "booking": "6912de21f48b4ecd56528c31",
+    "guest": "6912ddfef48b4ecd56528c2c",
+    "lineItems": [
+      {
+        "label": "Trial rate",
+        "amount": 1500,
+        "_id": "6912de21f48b4ecd56528c34"
+      },
+      {
+        "label": "Cleaning",
+        "amount": 50,
+        "_id": "6912de21f48b4ecd56528c35"
+      },
+      {
+        "label": "Refundable deposit",
+        "amount": 200,
+        "_id": "6912de21f48b4ecd56528c36"
+      }
+    ],
+    "taxes": [
+      {
+        "label": "VAT",
+        "amount": 175,
+        "_id": "6912de21f48b4ecd56528c37"
+      }
+    ],
+    "platformFee": 210,
+    "total": 2135,
+    "currency": "USD",
+    "paid": true,
+    "issuedAt": "2025-11-11T06:56:33.190Z",
+    "__v": 0,
+    "paidAt": "2025-11-11T06:56:44.570Z"
+  },
+  {
+    "_id": "6912f561f690728c5d2e77c7",
+    "booking": "6912f561f690728c5d2e77c5",
+    "guest": "6912f561f690728c5d2e77bf",
+    "lineItems": [
+      {
+        "label": "Rate",
+        "amount": 360,
+        "_id": "6912f561f690728c5d2e77c8"
+      },
+      {
+        "label": "Cleaning",
+        "amount": 20,
+        "_id": "6912f561f690728c5d2e77c9"
+      },
+      {
+        "label": "Deposit",
+        "amount": 50,
+        "_id": "6912f561f690728c5d2e77ca"
+      }
+    ],
+    "taxes": [
+      {
+        "label": "VAT",
+        "amount": 43,
+        "_id": "6912f561f690728c5d2e77cb"
+      }
+    ],
+    "platformFee": 52,
+    "total": 525,
+    "currency": "USD",
+    "paid": false,
+    "issuedAt": "2025-11-11T08:35:45.279Z",
+    "__v": 0
+  },
+  {
+    "_id": "6913046e432f284dabc9de32",
+    "booking": "6913046e432f284dabc9de30",
+    "lineItems": [
+      {
+        "label": "Trial rate",
+        "amount": 450,
+        "_id": "6913046e432f284dabc9de33"
+      },
+      {
+        "label": "Cleaning",
+        "amount": 25,
+        "_id": "6913046e432f284dabc9de34"
+      },
+      {
+        "label": "Refundable deposit",
+        "amount": 75,
+        "_id": "6913046e432f284dabc9de35"
+      }
+    ],
+    "taxes": [
+      {
+        "label": "VAT",
+        "amount": 55,
+        "_id": "6913046e432f284dabc9de36"
+      }
+    ],
+    "platformFee": 61,
+    "total": 666,
+    "currency": "USD",
+    "paid": false,
+    "issuedAt": "2025-11-11T09:39:58.048Z",
+    "__v": 0
+  },
+  {
+    "_id": "691305c6432f284dabc9de44",
+    "booking": "691305c6432f284dabc9de42",
+    "lineItems": [
+      {
+        "label": "Trial rate",
+        "amount": 450,
+        "_id": "691305c6432f284dabc9de45"
+      },
+      {
+        "label": "Cleaning",
+        "amount": 25,
+        "_id": "691305c6432f284dabc9de46"
+      },
+      {
+        "label": "Refundable deposit",
+        "amount": 75,
+        "_id": "691305c6432f284dabc9de47"
+      }
+    ],
+    "taxes": [
+      {
+        "label": "VAT",
+        "amount": 55,
+        "_id": "691305c6432f284dabc9de48"
+      }
+    ],
+    "platformFee": 61,
+    "total": 666,
+    "currency": "USD",
+    "paid": false,
+    "issuedAt": "2025-11-11T09:45:42.217Z",
+    "__v": 0
+  },
+  {
+    "_id": "69130617432f284dabc9de56",
+    "booking": "69130617432f284dabc9de54",
+    "lineItems": [
+      {
+        "label": "Trial rate",
+        "amount": 360,
+        "_id": "69130617432f284dabc9de57"
+      },
+      {
+        "label": "Cleaning",
+        "amount": 20,
+        "_id": "69130617432f284dabc9de58"
+      },
+      {
+        "label": "Refundable deposit",
+        "amount": 50,
+        "_id": "69130617432f284dabc9de59"
+      }
+    ],
+    "taxes": [
+      {
+        "label": "VAT",
+        "amount": 43,
+        "_id": "69130617432f284dabc9de5a"
+      }
+    ],
+    "platformFee": 52,
+    "total": 525,
+    "currency": "USD",
+    "paid": false,
+    "issuedAt": "2025-11-11T09:47:03.203Z",
+    "__v": 0
+  },
+  {
+    "_id": "691311b4528e7f0a439746f2",
+    "booking": "691311b4528e7f0a439746f0",
+    "lineItems": [
+      {
+        "label": "Trial rate",
+        "amount": 0,
+        "_id": "691311b4528e7f0a439746f3"
+      },
+      {
+        "label": "Cleaning",
+        "amount": 0,
+        "_id": "691311b4528e7f0a439746f4"
+      },
+      {
+        "label": "Refundable deposit",
+        "amount": 0,
+        "_id": "691311b4528e7f0a439746f5"
+      }
+    ],
+    "taxes": [
+      {
+        "label": "VAT",
+        "amount": 0,
+        "_id": "691311b4528e7f0a439746f6"
+      }
+    ],
+    "platformFee": 0,
+    "total": 0,
+    "currency": "USD",
+    "paid": false,
+    "issuedAt": "2025-11-11T10:36:36.849Z",
+    "__v": 0
+  }
+]
