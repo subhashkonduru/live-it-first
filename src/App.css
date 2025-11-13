@@ -12,10 +12,11 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  /* use theme tokens for glow instead of hard-coded hex */
+  filter: drop-shadow(0 0 2em hsl(var(--primary) / 0.44));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em hsl(var(--gold) / 0.44));
 }
 
 @keyframes logo-spin {
@@ -38,5 +39,5 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: hsl(var(--muted-foreground) / 0.85);
 }

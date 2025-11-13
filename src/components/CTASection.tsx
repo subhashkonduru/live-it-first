@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/lib/lucide-stub";
 
 export const CTASection = () => {
   return (
@@ -25,7 +25,7 @@ export const CTASection = () => {
             <Button 
               variant="outline" 
               size="xl"
-              className="bg-white/10 text-primary-foreground border-white/30 hover:bg-white/20 shadow-lg"
+              className="bg-card/10 text-primary-foreground border-border hover:bg-card/20 shadow-lg"
             >
               Talk to Our Team
             </Button>

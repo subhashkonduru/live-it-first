@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
-import { Search, Menu, User } from "lucide-react";
+import { Search, Menu, User } from "@/lib/lucide-stub";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { mainMenu, quickLinks } from '@/lib/menu';
 
 export const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,33 +15,45 @@ export const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <NavLink to="/" className="text-2xl font-bold tracking-tight gradient-logo">
+          <NavLink to="/" className="text-2xl md:text-3xl font-bold tracking-tight gradient-logo brand-glow">
             Live It First
           </NavLink>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <NavLink 
-              to="/search" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Discover
-            </NavLink>
-            <NavLink 
-              to="/how-it-works" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              How It Works
-            </NavLink>
-            <Link to="/host">
-              <Button size="sm" className="cta-glow">Become a Host</Button>
-            </Link>
+            {mainMenu.map((m) => (
+              m.label === 'Become a Host' ? (
+                <Link key={m.to} to={m.to}>
+                  <Button variant="gold" size="sm" className="cta-glow">{m.label}</Button>
+                </Link>
+              ) : (
+                <NavLink key={m.to} to={m.to} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">{m.label}</NavLink>
+              )
+            ))}
             {token && (
               <>
                 <NavLink to="/profile" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">My Account</NavLink>
                 {userRole === 'admin' && <NavLink to="/admin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Admin</NavLink>}
               </>
             )}
+            {/* Quick links dropdown (desktop) */}
+            <div className="relative group">
+              <Button variant="ghost" size="sm" className="btn-ghost-hover-contrast">More</Button>
+              <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 pointer-events-none group-hover:pointer-events-auto absolute right-0 mt-2 w-56 bg-card text-card-foreground rounded-lg shadow-lg p-3 z-50">
+                <div className="grid gap-2">
+                  {quickLinks.slice(0,6).map(q => (
+                    <Button asChild key={q.to} variant="ghost" size="default" className="justify-start w-full">
+                      <Link to={q.to}>{q.label}</Link>
+                    </Button>
+                  ))}
+                  <div className="border-t border-border mt-2 pt-2">
+                    <Button asChild variant="ghost" size="sm" className="justify-start w-full">
+                      <Link to="/search">All links</Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right Actions */}
@@ -75,24 +88,15 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden pt-4 pb-2 space-y-3">
-            <NavLink 
-              to="/search" 
-              className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Discover
-            </NavLink>
-            <NavLink 
-              to="/how-it-works" 
-              className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              How It Works
-            </NavLink>
-            <NavLink 
-              to="/host" 
-              className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Become a Host
-            </NavLink>
+            {mainMenu.map((m) => (
+              m.label === 'Become a Host' ? (
+                <Link key={m.to} to={m.to} className="w-full block">
+                  <Button variant="gold" size="sm" className="w-full">{m.label}</Button>
+                </Link>
+              ) : (
+                <NavLink key={m.to} to={m.to} className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">{m.label}</NavLink>
+              )
+            ))}
             <Link to="/login" className="w-full block">
               <Button variant="outline" size="sm" className="w-full">
                 <User className="h-4 w-4 mr-2" />

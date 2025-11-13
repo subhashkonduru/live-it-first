@@ -39,26 +39,26 @@ const HostSignInModal: React.FC<{ open: boolean; onClose: () => void }> = ({ ope
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg overflow-hidden">
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-overlay-60 p-4">
+      <div className="w-full max-w-2xl bg-card rounded-lg shadow-lg overflow-hidden border border-border">
         <div className="p-6">
           <h2 className="text-2xl font-semibold mb-2">Sign in as a Host</h2>
-          <p className="text-sm text-muted mb-4">You need to be signed in as a host to create listings. Use the demo host account below or sign in with your own account.</p>
+          <p className="text-sm text-muted-foreground mb-4">You need to be signed in as a host to create listings. Use the demo host account below or sign in with your own account.</p>
 
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="p-4 border rounded">
+            <div className="p-4 border rounded bg-card">
               <h3 className="font-medium">Demo host</h3>
-              <p className="text-sm text-muted break-words">host@example.com</p>
-              <p className="text-sm text-muted">password</p>
+              <p className="text-sm text-muted-foreground break-words">host@example.com</p>
+              <p className="text-sm text-muted-foreground">password</p>
               <div className="mt-3 flex gap-2">
                 <button className="btn btn-sm" onClick={copyDemoCreds}>Copy</button>
                 <button className="btn btn-sm btn-primary" onClick={signInDemoHost} disabled={loading}>{loading ? 'Signing in…' : 'Sign in (demo)'}</button>
               </div>
             </div>
 
-            <div className="p-4 border rounded">
+            <div className="p-4 border rounded bg-card">
               <h3 className="font-medium">Your account</h3>
-              <p className="text-sm text-muted">Already have an account?</p>
+              <p className="text-sm text-muted-foreground">Already have an account?</p>
               <div className="mt-3 flex gap-2">
                 <button className="btn btn-sm" onClick={() => navigate('/register')}>Create account</button>
                 <button className="btn btn-sm btn-outline" onClick={() => navigate('/login')}>Open sign in</button>

@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Calendar, Star } from "lucide-react";
+import { MapPin, Calendar, Star } from "@/lib/lucide-stub";
 import resolveMediaUrl from '@/lib/media';
 
 interface PropertyCardProps {
@@ -34,11 +34,11 @@ export const PropertyCard = ({
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+  <div className="absolute inset-0 overlay-gradient-top opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         {/* Badges */}
         <div className="absolute top-3 left-3 flex gap-2">
-          <Badge className="bg-white/90 text-foreground hover:bg-white">
+          <Badge className="bg-card/90 text-foreground hover:bg-card">
             {experienceType}
           </Badge>
           {availability && (

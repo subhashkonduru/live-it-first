@@ -46,13 +46,13 @@ export const FeaturedExperiences = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <p className="text-primary font-medium mb-3 tracking-wide uppercase text-sm">
-            Curated for You
+            Featured
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Featured Trial Experiences
           </h2>
           <p className="text-xl text-muted-foreground">
-            Handpicked properties where you can truly experience the lifestyle before making it yours. Each stay is designed to give you an authentic sense of daily life.
+            Properties selected for trial stays so you can experience living in them before deciding.
           </p>
         </div>
 

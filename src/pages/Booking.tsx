@@ -11,6 +11,7 @@ const Booking = () => {
   const { id } = useParams();
   const [property, setProperty] = useState<any|null>(null);
   const [guestId, setGuestId] = useState(localStorage.getItem('guestId') || '');
+  const [currentUser, setCurrentUser] = useState<any|null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [step, setStep] = useState<'review'|'payment'|'confirmation'>('review');
   const [bookingObj, setBookingObj] = useState<any|null>(null);
@@ -22,6 +23,21 @@ const Booking = () => {
     if (!id) return;
     apiGet(`/api/properties/${id}`).then(setProperty).catch(()=>{});
   }, [id]);
+
+  // If the user is signed in, fetch their profile and pre-fill guestId
+  useEffect(() => {
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+    if (!token) return;
+    let cancelled = false;
+    apiGet('/api/me').then((u:any) => {
+      if (cancelled) return;
+      setCurrentUser(u || null);
+      if (u && u._id) {
+        setGuestId(u._id);
+      }
+    }).catch(()=>{});
+    return () => { cancelled = true; };
+  }, []);
 
   async function handleBook() {
     try {
@@ -55,10 +71,13 @@ const Booking = () => {
             <section className="lg:col-span-2">
               <p className="text-muted-foreground mb-4">Booking a 3-day sample stay at: <strong>{property.title}</strong></p>
 
-              <div className="bg-card p-4 rounded mb-4">
+              <div className="panel-surface p-4 mb-4">
                 <h2 className="font-semibold mb-2">Guest & Dates</h2>
-                <label className="block mb-2">Guest ID (leave empty for anonymous)</label>
-                <input value={guestId} onChange={e=>setGuestId(e.target.value)} placeholder="guest@example.com or user id" className="input mb-2 w-full" />
+                <label className="block mb-2">Guest (signed-in user will be used if available)</label>
+                <input value={guestId} onChange={e=>setGuestId(e.target.value)} placeholder="guest@example.com or user id" className="input mb-2 w-full" disabled={!!currentUser} />
+                {currentUser ? (
+                  <div className="text-sm text-muted-foreground">Signed in as <strong>{currentUser.name || currentUser.email || currentUser._id}</strong></div>
+                ) : null}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                   <div>
@@ -83,7 +102,7 @@ const Booking = () => {
               </div>
 
               {bookingObj && (
-                <div className="bg-card p-4 rounded">
+                <div className="panel-surface p-4">
                   <h3 className="font-semibold mb-2">Booking Summary</h3>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
@@ -107,14 +126,14 @@ const Booking = () => {
               )}
 
               {step === 'review' && (
-                <div className="mt-6 bg-muted p-4 rounded">
+                <div className="mt-6 panel-surface p-4">
                   <h4 className="font-semibold mb-2">Next</h4>
                   <p className="text-sm text-muted-foreground mb-3">Create a booking to preview your invoice and complete payment.</p>
                 </div>
               )}
 
               {step === 'payment' && (
-                <div className="mt-6 bg-muted p-4 rounded">
+                <div className="mt-6 panel-surface p-4">
                   <h4 className="font-semibold mb-2">Payment</h4>
                   <p className="text-sm text-muted-foreground mb-3">This area will host Stripe Elements for card entry when a publishable key is configured. Use the invoice pay buttons to simulate payment now.</p>
                   <div className="h-40 border border-dashed rounded flex items-center justify-center text-sm text-muted-foreground">Stripe Elements placeholder</div>

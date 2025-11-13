@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
+import animatePlugin from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -19,6 +21,8 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        surface: "hsl(var(--card))",
+        "surface-foreground": "hsl(var(--card-foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -63,6 +67,10 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      backgroundImage: {
+        'cta': 'var(--gradient-primary)',
+        'background-gradient': 'var(--gradient-background)'
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -92,5 +100,26 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+  animatePlugin,
+    plugin(({ addComponents }) => {
+      addComponents({
+        ".btn-cta": {
+          backgroundImage: "var(--gradient-primary)",
+          color: "hsl(var(--gold-foreground))",
+          borderRadius: "9999px",
+          padding: "0.6rem 1.4rem",
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 14px 48px -12px hsl(var(--gold) / 0.12)",
+          transition: "transform 0.18s ease, box-shadow 0.18s ease",
+        },
+        ".btn-cta:hover": {
+          transform: "translateY(-2px)",
+          filter: "brightness(1.02)",
+        },
+      });
+    }),
+  ],
 } satisfies Config;

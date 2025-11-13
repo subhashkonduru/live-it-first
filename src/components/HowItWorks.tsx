@@ -1,5 +1,5 @@
 import React, { useId, memo } from "react";
-import { Search, Calendar, Key, Heart } from "lucide-react";
+import { Search, Calendar, Key, Heart } from "@/lib/lucide-stub";
 
 type Step = {
   icon: React.ComponentType<React.ComponentProps<'svg'>>;
@@ -11,11 +11,11 @@ export const HowItWorks: React.FC = memo(() => {
   const id = useId();
 
   const steps: Step[] = [
-    {
+      {
       icon: Search,
       title: "Discover",
       description:
-        "Browse curated properties and filter by location, duration, and experience type. Every listing includes detailed itineraries and sensory details.",
+        "Browse properties and filter by location, duration, and experience type.",
     },
     {
       icon: Calendar,
@@ -57,7 +57,7 @@ export const HowItWorks: React.FC = memo(() => {
 
         <ol
           role="list"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch"
           aria-label="How it works steps"
         >
           {steps.map((step, index) => {
@@ -65,7 +65,7 @@ export const HowItWorks: React.FC = memo(() => {
             return (
               <li
                 key={step.title}
-                className="relative"
+                className="relative flex"
                 aria-posinset={index + 1}
                 aria-setsize={steps.length}
               >
@@ -78,7 +78,7 @@ export const HowItWorks: React.FC = memo(() => {
                 )}
 
                 <article
-                  className="relative bg-card rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow"
+                  className="relative bg-card rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
                   tabIndex={0}
                 >
                   {/* Step Number */}

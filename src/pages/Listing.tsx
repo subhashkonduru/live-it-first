@@ -94,12 +94,12 @@ const Listing = () => {
 
                 {/* Lightbox viewer */}
                 {viewerOpen && property?.media && (
-                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75" onClick={() => setViewerOpen(false)}>
+                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-overlay-75" onClick={() => setViewerOpen(false)}>
                     <div className="relative max-w-4xl w-full mx-4" onClick={e=>e.stopPropagation()}>
                       <img src={resolveMediaUrl(property.media[viewerIndex])} alt={`${property.title} viewer`} className="w-full h-auto max-h-[80vh] object-contain rounded" />
-                      <button className="absolute top-3 right-3 p-2 bg-white/80 rounded" onClick={()=>setViewerOpen(false)}>Close</button>
-                      {viewerIndex > 0 && <button className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded" onClick={()=>setViewerIndex(i=>Math.max(0,i-1))}>Prev</button>}
-                      {viewerIndex < property.media.length-1 && <button className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded" onClick={()=>setViewerIndex(i=>Math.min(property.media.length-1,i+1))}>Next</button>}
+                      <button className="absolute top-3 right-3 p-2 bg-card/80 rounded" onClick={()=>setViewerOpen(false)}>Close</button>
+                      {viewerIndex > 0 && <button className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-card/80 rounded" onClick={()=>setViewerIndex(i=>Math.max(0,i-1))}>Prev</button>}
+                      {viewerIndex < property.media.length-1 && <button className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-card/80 rounded" onClick={()=>setViewerIndex(i=>Math.min(property.media.length-1,i+1))}>Next</button>}
                     </div>
                   </div>
                 )}

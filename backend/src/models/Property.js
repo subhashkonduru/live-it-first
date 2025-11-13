@@ -23,6 +23,14 @@ const PropertySchema = new Schema({
   amenities: [String],
   // allow hosts to set pricing tiers depending on number of days
   priceByDuration: [{ minDays: Number, maxDays: Number, rate: Number }],
+  // availability windows for bookings
+  availability: [{
+    startDate: String,
+    endDate: String,
+    startTime: String,
+    endTime: String,
+    priceOverride: Number
+  }],
   rooms: [RoomSchema],
   price: {
     baseRate: Number,
@@ -30,6 +38,14 @@ const PropertySchema = new Schema({
     refundableDeposit: Number,
     platformFeePct: Number
   },
+  // billing and booking rules
+  billingModel: { type: String, enum: ['per_night','per_day'], default: 'per_night' },
+  minNights: { type: Number },
+  maxNights: { type: Number },
+  capacity: { type: Number },
+  // per-weekday pricing overrides { monday: Number, tuesday: Number, ... }
+  weekdayPricing: { type: Map, of: Number },
+  // per-room or per-guest pricing can be added here as nested structures
   available: { type: Boolean, default: true },
   itineraryTemplate: [String],
   createdAt: { type: Date, default: Date.now }

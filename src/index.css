@@ -1,3 +1,6 @@
+/* Import a premium display font for a cohesive luxury look across the site */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,114 +11,127 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium warm neutrals */
-    --background: 40 20% 97%;
-    --foreground: 220 15% 20%;
+   /* Global background: deep ocean blue requested by user
+     Using hex ~ #002e5d -> approx HSL 210 100% 18% */
+   --background: 210 100% 18%; /* deep ocean blue for site background / menus */
+    --foreground: 0 0% 98%; /* keep near-white for text contrast */
 
-    --card: 40 20% 99%;
-    --card-foreground: 220 15% 20%;
+    /* Surfaces (cards, popovers) kept slightly lighter than the background for separation */
+    /* Make panels calmer: use a near-white panel with a subtle blue tint so
+       cards stand out on the deep-blue page. Inputs and content surfaces
+       remain darker (the --card token) so form fields and controls keep
+       readable contrast against the lighter panel. */
+   --card: 212 56% 22%; /* darker input/content surface used inside panels */
+    --card-foreground: 0 0% 98%;
 
-    --popover: 40 20% 99%;
-    --popover-foreground: 220 15% 20%;
+    --popover: 212 36% 96%; /* light, near-white popovers / menus */
+    --popover-foreground: 220 10% 8%;
 
-    /* Sophisticated teal primary */
-    --primary: 185 45% 35%;
-    --primary-foreground: 40 20% 98%;
+  /* Buttons and actionable primary color: use a warm gold to contrast the blue background */
+    /* Primary/Gold palette: tone down saturation and lightness so the gold
+       reads as rich and warm instead of neon when used for large typography
+       or glows. */
+    --primary: 45 72% 48%; /* slightly less saturated and a touch darker */
+  --primary-foreground: 220 12% 6%;
 
-    /* Warm secondary surfaces */
-    --secondary: 40 15% 92%;
-    --secondary-foreground: 220 15% 20%;
+    --secondary: 212 48% 28%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 40 15% 90%;
-    --muted-foreground: 220 10% 45%;
+  /* Muted surfaces used for chips, inputs, table rows — make them lighter so panels are visible on blue bg */
+  --muted: 212 100% 44%;
+  --muted-foreground: 0 0% 98%;
 
-    /* Warm gold accent for CTAs */
-    --accent: 40 70% 55%;
-    --accent-foreground: 220 15% 20%;
+    /* Keep a warm gold accent for CTAs if desired */
+    --accent: 45 92% 52%; /* luxurious gold accent */
+    --accent-foreground: 220 12% 6%;
 
     --destructive: 0 70% 50%;
-    --destructive-foreground: 40 20% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 185 45% 35%;
+    --border: 212 24% 28%; /* subtle but visible borders (tuned for higher contrast) */
+    --input: 212 26% 38%; /* input surfaces slightly lighter to sit on cards */
+    --ring: 212 90% 60%; /* bright focus ring for accessibility */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
     
-    /* Premium design tokens */
-    --primary-glow: 185 50% 45%;
-    --gold: 40 70% 55%;
-    --gold-foreground: 220 15% 20%;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(185 45% 35%), hsl(185 50% 45%));
-    --gradient-warm: linear-gradient(180deg, hsl(40 20% 97%), hsl(40 15% 94%));
-    --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 24px -2px hsl(220 15% 20% / 0.08);
-    --shadow-medium: 0 8px 32px -4px hsl(220 15% 20% / 0.12);
-    --shadow-elegant: 0 16px 48px -8px hsl(220 15% 20% / 0.16);
-    
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-elegant: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Glow and accents */
+    --primary-glow: 214 90% 28%; /* luminous blue highlight */
+  --gold: 42 60% 38%; /* richer, slightly darker, less neon gold */
+  --gold-foreground: 220 10% 8%;
 
-    --sidebar-background: 0 0% 98%;
+  --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)) 55%, hsl(var(--gold)) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(222 26% 6%), hsl(224 28% 8%));
+    --gradient-hero: linear-gradient(180deg, rgba(8,12,30,0.45), rgba(3,6,18,0.75));
+   /* Explicit blue background gradient built from the requested background color.
+     Use a plain linear-gradient between the background and card tokens to avoid
+     browser incompatibility with color-mix which can produce invalid fallbacks. */
+   --gradient-background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --shadow-soft: 0 10px 40px -12px hsl(222 24% 6% / 0.06);
+    --shadow-medium: 0 14px 48px -14px hsl(222 24% 6% / 0.09);
+    --shadow-elegant: 0 36px 120px -36px hsl(222 24% 6% / 0.26);
 
-    --sidebar-primary: 240 5.9% 10%;
+  /* Panel surface to use for card backgrounds (lighter than input card color so fields pop) */
+  --panel: 212 28% 96%; /* very light bluish surface for panels */
+  --panel-foreground: 220 10% 8%; /* dark foreground for readable text */
 
+    --transition-smooth: all 0.28s cubic-bezier(0.2, 0.9, 0.2, 1);
+    --transition-elegant: all 0.45s cubic-bezier(0.2, 0.9, 0.2, 1);
+
+    --sidebar-background: 224 24% 8%;
+    --sidebar-foreground: 40 18% 98%;
+    --sidebar-primary: 224 78% 24%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 224 24% 8%;
+    --sidebar-accent-foreground: 40 18% 98%;
+    --sidebar-border: 222 22% 10%;
+    --sidebar-ring: 224 78% 24%;
   }
 
-  .dark {
-    --background: 220 18% 12%;
-    --foreground: 40 20% 95%;
+  /* Overlay token used instead of arbitrary black opacities */
+  :root {
+    --overlay: 215 18% 6%; /* deep navy used for image overlays */
+  }
 
-    --card: 220 18% 15%;
-    --card-foreground: 40 20% 95%;
+  /* Landing page: use the unified luxe blue palette so all screens feel cohesive */
+  .landing-background {
+    /* Landing inherits the global blue background and surface tokens */
+    --background: 212 100% 36%;
+    --foreground: 0 0% 98%;
 
-    --popover: 220 18% 15%;
-    --popover-foreground: 40 20% 95%;
+    --card: 212 100% 44%;
+    --card-foreground: 0 0% 98%;
 
-    --primary: 185 50% 45%;
-    --primary-foreground: 220 18% 12%;
+    --popover: 212 100% 44%;
+    --popover-foreground: 0 0% 98%;
 
-    --secondary: 220 15% 20%;
-    --secondary-foreground: 40 20% 95%;
+    --primary: 45 92% 52%;
+    --primary-foreground: 220 12% 6%;
 
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 10% 60%;
+    --secondary: 212 48% 28%;
+    --secondary-foreground: 0 0% 98%;
 
-    --accent: 40 70% 55%;
-    --accent-foreground: 220 18% 12%;
+  --muted: 212 100% 44%;
+  --muted-foreground: 0 0% 98%;
+
+    --accent: 45 92% 52%;
+    --accent-foreground: 220 12% 6%;
 
     --destructive: 0 70% 50%;
-    --destructive-foreground: 40 20% 95%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 185 50% 45%;
-    
-    --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 212 24% 32%;
+    --input: 212 26% 38%;
+    --ring: 212 90% 60%;
+  }
+
+  /* Luxe panel used for hero/login cards */
+  .panel-luxe {
+    background-image: linear-gradient(180deg, color-mix(in srgb, hsl(var(--primary)) 12%, hsl(var(--card)) 88%), color-mix(in srgb, hsl(var(--primary)) 8%, hsl(var(--card)) 92%));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 26px 90px -28px hsl(215 20% 6% / 0.32), 0 8px 28px -10px hsl(215 20% 6% / 0.14), 0 1px 0 0 hsl(var(--gold) / 0.06) inset;
+    color: hsl(var(--card-foreground));
+    backdrop-filter: blur(6px);
   }
 }
 
@@ -138,26 +154,328 @@ All colors MUST be HSL.
     100% { opacity: 1; transform: translateY(0); }
   }
 
+  /* Pulsing glow used specifically for brand/logo animation */
+  @keyframes logo-glow-pulse {
+    0%, 100% {
+      /* subtle pulsing (reduced intensity for crisper text) */
+      filter: drop-shadow(0 4px 12px hsl(var(--gold) / 0.36)) drop-shadow(0 10px 28px hsl(var(--primary) / 0.06));
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      filter: drop-shadow(0 6px 16px hsl(var(--gold) / 0.48)) drop-shadow(0 16px 36px hsl(var(--primary) / 0.10));
+      transform: translateY(-1px) scale(1.005);
+    }
+  }
+
   .gradient-logo {
-    background-image: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--gold)) 55% , hsl(185 60% 50%));
-    background-size: 200% 200%;
+    /* Luxury animated gradient but crisp for legibility: bold color + subtle glow */
+    background-image: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--primary)) 40%, hsl(200 75% 58%) 100%);
+    background-size: 300% 300%;
+    /* Fallback solid color so text remains visible if background-clip isn't available */
+    color: hsl(var(--gold));
+    display: inline-block;
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient-shift 6s ease infinite;
+    /* Only make text transparent when the browser supports background-clip:text */
+    @supports (-webkit-background-clip: text) {
+      -webkit-text-fill-color: transparent;
+    }
+    animation: gradient-shift 6s linear infinite, logo-glow-pulse 3.6s ease-in-out infinite;
+    /* Small rim + soft glow for depth while keeping text crisp */
+    -webkit-text-stroke: 0.6px rgba(0,0,0,0.12);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.18), 0 8px 22px hsl(var(--gold) / 0.32);
   }
+
+  /* Allow applying the same animated brand look to other elements via .brand-glow */
+  .brand-glow {
+    background-image: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--primary)) 40%, hsl(200 75% 58%) 100%);
+    background-size: 300% 300%;
+    color: hsl(var(--gold));
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    @supports (-webkit-background-clip: text) {
+      -webkit-text-fill-color: transparent;
+    }
+    animation: gradient-shift 6s linear infinite, logo-glow-pulse 3.6s ease-in-out infinite;
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.12);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.16), 0 8px 22px hsl(var(--gold) / 0.32);
+  }
+
+/* Strong, legible hero headline style — overrides gradient blur for maximum contrast
+   Use this on the hero H1 to ensure readability over photographic backgrounds. */
+.hero-headline {
+  /* Use a high-contrast solid fill on photographic backgrounds to ensure
+     legibility. Keep a subtle warm accent via a reduced gold glow and rim. */
+  color: hsl(var(--foreground));
+  display: inline-block;
+  /* Ensure the text is filled with the foreground color for broad support */
+  -webkit-text-fill-color: hsl(var(--foreground));
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.28);
+  text-stroke: 0.6px rgba(0,0,0,0.28);
+  /* Remove heavy warm glow; use a subtle warm halo for brand feel */
+  text-shadow: 0 2px 0 rgba(0,0,0,0.6), 0 8px 28px hsl(var(--gold) / 0.12);
+  filter: none !important;
+}
+
+/* Variant to allow the hero to keep a subtle gradient but still be legible — use if desired */
+.hero-headline--gradient {
+  /* Gradient headline variant: show gradient only when contrast is sufficient
+     and fallback to foreground color for accessibility. */
+  background-image: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--primary)) 40%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: hsl(var(--foreground)); /* fallback */
+  -webkit-text-fill-color: hsl(var(--foreground));
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.22);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.45), 0 8px 18px hsl(var(--gold) / 0.12);
+}
+
+/* Wrapper that provides a translucent, blurred backdrop specifically for hero text blocks */
+.hero-text-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  /* ensure the wrapper sits above background image */
+  z-index: 2;
+}
+.hero-text-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  /* dark-blue translucent backdrop for legibility */
+  background-color: hsl(var(--overlay) / 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: -1;
+  pointer-events: none;
+}
 
   .floaty { animation: floaty 4s ease-in-out infinite; }
   .fade-up { animation: fade-up 0.6s ease both; }
 
+  /* Floating label form utility */
+  .floating {
+    position: relative;
+  }
+  .floating input,
+  .floating textarea {
+    background-clip: padding-box;
+  }
+  .floating-label {
+    position: absolute;
+    left: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.18s ease, font-size 0.18s ease, opacity 0.18s ease;
+    font-size: 0.95rem;
+    /* Use card foreground so labels remain visible on light backgrounds */
+    color: hsl(var(--card-foreground) / 0.9);
+    pointer-events: none;
+    user-select: none;
+  }
+  /* When input is focused or has value (placeholder not shown), lift the label */
+  .floating input:focus + .floating-label,
+  .floating input:not(:placeholder-shown) + .floating-label,
+  .floating textarea:focus + .floating-label,
+  .floating textarea:not(:placeholder-shown) + .floating-label {
+    transform: translateY(-140%) scale(0.92);
+    opacity: 0.95;
+    font-size: 0.85rem; /* shrink slightly */
+  }
+
+  /* Stagger utilities */
+  .stagger-child { animation: fade-up 0.6s ease both; }
+
   .cta-glow {
-    box-shadow: 0 8px 30px -8px hsl(var(--primary-glow) / 0.45);
+    box-shadow: 0 10px 40px -10px hsl(var(--gold) / 0.45);
     transition: box-shadow 0.35s ease, transform 0.25s ease;
   }
-  .cta-glow:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 60px -12px hsl(var(--primary-glow) / 0.5); }
+  .cta-glow:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 22px 80px -18px hsl(var(--gold) / 0.55); }
+
+  /* Gold CTA button styling using theme tokens for a rich, accessible look */
+  .btn-gold {
+    position: relative; /* for ripple pseudo-element */
+    overflow: hidden;
+    background-image: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--primary)) 70%);
+    color: hsl(var(--gold-foreground));
+    border-radius: 9999px;
+    padding: 0.5rem 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 40px -12px hsl(var(--overlay) / 0.14), 0 6px 18px -6px hsl(var(--gold) / 0.12);
+    transition: transform 0.18s ease, box-shadow 0.22s ease, filter 0.18s ease;
+    will-change: transform;
+  }
+  .btn-gold:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 20px 56px -20px hsl(var(--overlay) / 0.18), 0 18px 60px -18px hsl(var(--gold) / 0.16);
+    filter: brightness(1.03);
+  }
+  .btn-gold:active { transform: translateY(-1px) scale(0.995); }
+  .btn-gold:focus-visible { outline: none; box-shadow: 0 0 0 4px hsl(var(--gold) / 0.15), 0 16px 48px -18px hsl(var(--overlay) / 0.18); }
+
+  /* Subtle ripple for touch/press feedback */
+  .btn-gold::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%) scale(0);
+    background: radial-gradient(circle, rgba(255,255,255,0.36) 0%, rgba(255,255,255,0.12) 30%, transparent 60%);
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 9999px;
+  }
+  @keyframes ripple {
+    0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0.48; }
+    100% { transform: translate(-50%, -50%) scale(3.2); opacity: 0; }
+  }
+  .btn-gold:active::after {
+    animation: ripple 520ms cubic-bezier(.2,.9,.2,1);
+  }
+
+  /* Tweak ghost/outline hover states to keep them visible on dark header */
+  .btn-ghost-hover-contrast {
+    background: color-mix(in srgb, hsl(var(--panel)) 4%, hsl(var(--overlay)) 3%);
+    color: hsl(var(--muted-foreground));
+    transition: background 0.16s ease, color 0.16s ease;
+  }
+  .btn-ghost-hover-contrast:hover { background: color-mix(in srgb, hsl(var(--panel)) 12%, hsl(var(--overlay)) 6%); color: hsl(var(--foreground)); }
+
+  @layer utilities {
+    /* Tailwind-compatible utility wrappers for the button classes so they
+       can be composed with @apply in components if needed. */
+    .btn-gold { @apply inline-flex items-center justify-center rounded-full; }
+    .btn-ghost-hover-contrast { @apply px-3 py-1 rounded; }
+  }
 
   .card-appear { transition: transform 0.45s cubic-bezier(.2,.9,.3,1), box-shadow 0.45s; }
+  .card-appear { transition: transform 0.45s cubic-bezier(.2,.9,.3,1), box-shadow 0.45s; box-shadow: 0 8px 24px -12px hsl(var(--overlay) / 0.16); border: 1px solid hsl(var(--border) / 0.9); }
   .card-appear:hover { transform: translateY(-6px); box-shadow: var(--shadow-elegant); }
+
+/* A semantic class to apply the lighter panel surface to specific cards */
+.panel-surface {
+  /* Slightly elevated, lighter panel with subtle rim and shadow for separation */
+  background-color: hsl(var(--panel));
+  background-image: linear-gradient(180deg, hsl(var(--panel) / 0.98), hsl(var(--card) / 0.96));
+  color: hsl(var(--panel-foreground));
+  border: 1px solid hsl(var(--border) / 0.8);
+  box-shadow: 0 6px 26px -10px hsl(var(--overlay) / 0.14);
+  border-radius: 14px;
+}
+
+/* When panels use the lighter panel-surface, inputs inside should use the card token
+   so they remain darker and readable against the panel. */
+/* Inputs inside panels: use a clean white surface for best readability on light panels */
+.panel-surface input,
+.panel-surface textarea,
+.panel-surface select,
+.host-background input,
+.host-background textarea,
+.host-background select,
+.host-form-surface input,
+.host-form-surface textarea,
+.host-form-surface select {
+  background: hsl(0 0% 100%);
+  color: hsl(var(--panel-foreground));
+  border: 1px solid hsl(var(--border) / 0.85);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 6px 18px -12px hsl(var(--overlay) / 0.04);
+}
+
+.panel-surface input::placeholder,
+.panel-surface textarea::placeholder,
+.panel-surface select::placeholder,
+.host-background input::placeholder,
+.host-background textarea::placeholder,
+.host-background select::placeholder,
+.host-form-surface input::placeholder,
+.host-form-surface textarea::placeholder,
+.host-form-surface select::placeholder {
+  color: hsl(var(--muted-foreground) / 0.7);
+}
+
+.panel-surface input:focus,
+.panel-surface textarea:focus,
+.panel-surface select:focus,
+.host-background input:focus,
+.host-background textarea:focus,
+.host-background select:focus,
+.host-form-surface input:focus,
+.host-form-surface textarea:focus,
+.host-form-surface select:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 6px hsl(var(--ring) / 0.12);
+}
+
+/* Stronger override for inputs that still carry utility classes (bg-background, border-input) */
+.host-form-surface input,
+.host-form-surface textarea,
+.host-form-surface select,
+.host-form-surface input.bg-background,
+.host-form-surface textarea.bg-background,
+.host-form-surface select.bg-background,
+.host-form-surface input.border-input,
+.host-form-surface textarea.border-input,
+.host-form-surface select.border-input {
+  background: hsl(0 0% 100%) !important;
+  color: hsl(var(--panel-foreground)) !important;
+  border: 1px solid hsl(var(--border) / 0.9) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+/* Pricing/aside panel on host pages: ensure inputs are white too (higher specificity) */
+.host-background .panel-surface input,
+.host-background .panel-surface textarea,
+.host-background .panel-surface select,
+.host-background .panel-surface input.bg-background,
+.host-background .panel-surface textarea.bg-background,
+.host-background .panel-surface select.bg-background,
+.host-background .panel-surface input.border-input,
+.host-background .panel-surface textarea.border-input,
+.host-background .panel-surface select.border-input {
+  background: hsl(0 0% 100%) !important;
+  color: hsl(var(--panel-foreground)) !important;
+  border: 1px solid hsl(var(--border) / 0.9) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+.panel-surface .photo-drop {
+  background: linear-gradient(180deg, hsl(var(--panel) / 0.06), hsl(var(--card) / 0.98));
+  border-radius: 10px;
+}
+
+  /* Premium text glow for landing/default pages and a utility class for targeted use.
+     Applied to typographic elements only so form controls and icons are not affected. */
+  /* Restrict decorative gradient/glow to headings only to avoid applying
+     heavy text-shadow to body copy, labels and form controls which reduces
+     legibility and makes UI elements blend into the background. */
+  .landing-background :where(h1,h2),
+  .text-glow :where(h1,h2) {
+    /* subtle dual-layer glow for hero headings */
+    text-shadow:
+      0 2px 8px hsl(var(--gold) / 0.55),
+      0 12px 36px hsl(var(--primary) / 0.08);
+    transition: text-shadow 0.28s ease, color 0.18s ease;
+  }
+
+  /* Stronger glow for headings inside the landing area */
+  .landing-background h1,
+  .landing-background h2,
+  .text-glow h1,
+  .text-glow h2 {
+    text-shadow:
+      0 4px 16px hsl(var(--gold) / 0.68),
+      0 22px 60px hsl(var(--primary) / 0.12);
+  }
 
   /* subtle animated underline for links */
   .link-underline {
@@ -168,6 +486,164 @@ All colors MUST be HSL.
     transition: background-size 0.25s ease;
   }
   .link-underline:hover { background-size: 100% 2px, 100% 2px; }
+
+  /* Overlay utilities (use these instead of bg-black/<n>) */
+  .bg-overlay-80 { background-color: hsl(var(--overlay) / 0.8); }
+  .bg-overlay-75 { background-color: hsl(var(--overlay) / 0.75); }
+  .bg-overlay-60 { background-color: hsl(var(--overlay) / 0.6); }
+  .bg-overlay-50 { background-color: hsl(var(--overlay) / 0.5); }
+
+  .overlay-gradient { background-image: linear-gradient(to bottom, hsl(var(--overlay) / 0.30), hsl(var(--overlay) / 0.25), hsl(var(--overlay) / 0.55)); }
+  .overlay-gradient-top { background-image: linear-gradient(to top, hsl(var(--overlay) / 0.5), transparent); }
+}
+
+/* Luxury frosted panel and chip styles used on host page */
+.frosted {
+  /* Frosted panels keep a translucent look but include a faint rim and shadow
+     so they sit above the page gradient rather than blending into it. */
+  background: linear-gradient(180deg, hsl(var(--panel) / 0.12), hsl(var(--panel) / 0.06));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid hsl(var(--border) / 0.85);
+  box-shadow: 0 10px 32px -14px hsl(var(--overlay) / 0.18);
+  border-radius: 12px;
+}
+
+/* Host / Create-listing specific surface overrides
+   These ensure form panels on host pages use a light, near-white surface
+   while inputs remain darker so text and controls are readable on top. */
+.host-form-surface,
+.host-background .panel-surface {
+  background-color: hsl(var(--panel));
+  background-image: linear-gradient(180deg, hsl(var(--panel) / 0.98), hsl(var(--card) / 0.96));
+  color: hsl(var(--panel-foreground));
+  border: 1px solid hsl(var(--border) / 0.9);
+  box-shadow: 0 12px 48px -18px hsl(var(--overlay) / 0.16);
+  border-radius: 12px;
+}
+
+.host-form-surface input,
+.host-form-surface textarea,
+.host-form-surface select,
+.host-background input,
+.host-background textarea,
+.host-background select {
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+}
+
+.host-form-surface .photo-drop,
+.host-background .photo-drop {
+  background: linear-gradient(180deg, hsl(var(--panel) / 0.06), hsl(var(--card) / 0.98));
+  border-radius: 10px;
+  border: 1px dashed hsl(var(--border) / 0.8);
+}
+
+.host-form-surface .chip,
+.host-background .chip {
+  background: color-mix(in srgb, hsl(var(--panel)) 92%, hsl(var(--overlay)) 6%);
+  border: 1px solid hsl(var(--border) / 0.95);
+  color: hsl(var(--panel-foreground));
+}
+
+/* Profile page specific styles */
+.profile-hero {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+.profile-hero .avatar-wrap { position: relative; }
+.profile-hero .avatar-overlap { transform: translateY(-24px); }
+.profile-stats { display: flex; gap: 0.75rem; margin-top: 1rem; }
+.profile-stat { background: hsl(var(--panel)); border: 1px solid hsl(var(--border) / 0.85); padding: 0.6rem 0.8rem; border-radius: 8px; min-width: 72px; }
+.profile-stat .label { font-size: 0.72rem; color: hsl(var(--muted-foreground)); }
+.profile-stat .value { font-weight: 700; font-size: 1.05rem; }
+
+/* Make labels on host/create-listing pages high-contrast (black) for readability */
+.host-form-surface label,
+.host-background .host-form-surface label,
+.host-background label {
+  color: hsl(0 0% 6%) !important; /* near-black */
+}
+
+/* Also target the Label component's utility classes where used */
+.host-form-surface .tracking-wide,
+.host-background .tracking-wide {
+  color: hsl(0 0% 6%) !important;
+}
+
+/* Specific background for Become a Host / property upload screen: luxe deep-blue gradient */
+.host-background {
+  /* Use the global background tokens so host pages follow the site-wide blue theme
+     and avoid hard-coded near-black gradients which caused an effectively black page. */
+  background-color: hsl(var(--background));
+  background-image: var(--gradient-background);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Dark mode variant for the host background: slightly darker but still within the blue token family */
+.dark .host-background {
+  background-color: hsl(var(--background));
+  background-image: linear-gradient(180deg, hsl(var(--background)) 0%, color-mix(in srgb, hsl(var(--card)) 20%, hsl(var(--background)) 80%) 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  /* use tokens so chips are visible on both light and dark themes */
+  /* Slightly stronger chip surface so they read on pale backgrounds */
+  /* Avoid using literal 'black'—use the overlay token so darkening matches the luxe palette */
+  background: color-mix(in srgb, hsl(var(--secondary)) 85%, hsl(var(--overlay)) 6%);
+  border: 1px solid hsl(var(--border) / 0.95);
+  color: hsl(var(--card-foreground));
+}
+.chip:hover { transform: translateY(-3px); box-shadow: 0 8px 24px hsl(var(--overlay) / 0.12); }
+.chip.selected {
+  background-image: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--primary)));
+  color: hsl(var(--gold-foreground));
+  border: 1px solid hsl(var(--gold) / 0.9);
+  box-shadow: 0 12px 40px -12px hsl(var(--overlay) / 0.18);
+}
+
+/* Visible upload dropzone used around the Add photos control */
+.photo-drop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px dashed hsl(var(--border) / 0.8);
+  background: linear-gradient(180deg, hsl(var(--panel) / 0.06), hsl(var(--card) / 0.98));
+  cursor: pointer;
+}
+.photo-drop:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); }
+
+.photo-drop .text-sm { color: hsl(var(--muted-foreground)); }
+
+/* make native inputs readable on light backgrounds */
+input, textarea, select {
+  color: hsl(var(--card-foreground));
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+}
+
+/* make placeholders clearly visible on pale backgrounds */
+input::placeholder, textarea::placeholder {
+  color: hsl(var(--muted-foreground) / 0.9);
 }
 
 @layer base {
@@ -176,17 +652,65 @@ All colors MUST be HSL.
   }
 
   body {
+    /* keep token-based background color as a fallback and add the luxe gradient used by panel-luxe */
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    /* Use the explicit blue background gradient (based on #0057B7) */
+  background-image: var(--gradient-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+    /* Use Playfair Display across the entire site for a premium, cohesive typographic voice */
+    font-family: 'Playfair Display', serif;
     font-feature-settings: "kern" 1, "liga" 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+/* Focus styles for keyboard accessibility */
+.chip:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 3px;
+}
 
+/* Slightly stronger contrast for muted text in forms */
+.text-muted-foreground { color: hsl(var(--muted-foreground)); }
+
+  /* Headings keep the Playfair Display look but slightly bolder for contrast */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.02em;
   }
 }
+
+/* Convenience semantic utilities so components can opt into the luxe surfaces */
+.surface {
+  /* Use a soft two-stop gradient and a subtle shadow to separate cards from the
+     busy blue page background. Keep the surface token as the base so themes
+     remain consistent. */
+  background-color: hsl(var(--card));
+  background-image: linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--panel) / 0.96));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border) / 0.72);
+  box-shadow: var(--shadow-medium);
+  border-radius: 12px;
+}
+.surface-foreground { color: hsl(var(--card-foreground)); }
+
+/* Primary CTA helper (uses gold -> primary gradient like the hero) */
+.btn-cta {
+  background-image: var(--gradient-primary);
+  color: hsl(var(--gold-foreground));
+  border-radius: 9999px;
+  padding: 0.6rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 48px -12px hsl(var(--gold) / 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.btn-cta:hover { transform: translateY(-2px); filter: brightness(1.02); }
+

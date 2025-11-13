@@ -1,4 +1,4 @@
-import { Shield, Award, Clock, Users } from "lucide-react";
+import { Shield, Award, Clock, Users } from "@/lib/lucide-stub";
 
 export const TrustSignals = () => {
   const signals = [
@@ -24,7 +24,7 @@ export const TrustSignals = () => {
       icon: Clock,
       stat: "24/7",
       label: "Concierge Support",
-      description: "Premium assistance throughout your stay"
+      description: "Assistance throughout your stay"
     }
   ];
 

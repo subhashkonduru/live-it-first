@@ -38,7 +38,8 @@ app.get('/', (req, res) => res.json({ ok: true, name: 'live-it-first-backend' })
 
 async function start() {
   try {
-  const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/live-it-first';
+  // prefer IPv4 loopback to avoid environments where `localhost` resolves to IPv6 ::1
+  const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/live-it-first';
     await mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log('Connected to MongoDB');
 

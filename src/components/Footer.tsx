@@ -1,5 +1,5 @@
 import { NavLink } from "./NavLink";
-import { Instagram, Twitter, Linkedin, Mail } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Mail } from "@/lib/lucide-stub";
 
 export const Footer = () => {
   return (
